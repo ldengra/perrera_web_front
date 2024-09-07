@@ -1,9 +1,26 @@
 // Simulación de productos
-const products = [
+const allProducts = [
     { id: 1, title: 'Pastor Aleman', description: 'Se ha encontrado pastor aleman', price: '100€', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn4ir7qxd2_RlqMp6l12zjeLI_EE3sO1ulMZYDrHrlN-x2SbHu' },
     { id: 2, title: 'Husky Siberiano', description: 'Se busca husky', price: '300€', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2J1bwGJrRJbNq9cYZjGLxce1N_ZX585bTX8i-cC_u9a_pJsmNJY5KN6JwpMhTDpcHbyPBp9Ar_fY0ZTy58c0uKpdt3pdNV51a1VcOOE' },
     { id: 3, title: 'Perro Salchicha', description: 'Se ofrece perro salchicha', price: '50€', image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRcm7pw5E1Y_AHdhIf0SfAyoahud7cIjN4GXntNOUjWVa8kKlXR' },
+    { id: 4, title: 'Pastor Aleman', description: 'Se ha encontrado pastor aleman', price: '100€', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn4ir7qxd2_RlqMp6l12zjeLI_EE3sO1ulMZYDrHrlN-x2SbHu' },
+    { id: 5, title: 'Husky Siberiano', description: 'Se busca husky', price: '300€', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2J1bwGJrRJbNq9cYZjGLxce1N_ZX585bTX8i-cC_u9a_pJsmNJY5KN6JwpMhTDpcHbyPBp9Ar_fY0ZTy58c0uKpdt3pdNV51a1VcOOE' },
+    { id: 6, title: 'Perro Salchicha', description: 'Se ofrece perro salchicha', price: '50€', image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRcm7pw5E1Y_AHdhIf0SfAyoahud7cIjN4GXntNOUjWVa8kKlXR' },
+    { id: 7, title: 'Pastor Aleman', description: 'Se ha encontrado pastor aleman', price: '100€', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn4ir7qxd2_RlqMp6l12zjeLI_EE3sO1ulMZYDrHrlN-x2SbHu' },
+    { id: 8, title: 'Husky Siberiano', description: 'Se busca husky', price: '300€', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2J1bwGJrRJbNq9cYZjGLxce1N_ZX585bTX8i-cC_u9a_pJsmNJY5KN6JwpMhTDpcHbyPBp9Ar_fY0ZTy58c0uKpdt3pdNV51a1VcOOE' },
+    { id: 9, title: 'Perro Salchicha', description: 'Se ofrece perro salchicha', price: '50€', image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRcm7pw5E1Y_AHdhIf0SfAyoahud7cIjN4GXntNOUjWVa8kKlXR' },
+
 ];
+
+function filterProducts(category) {
+    const filteredProducts = allProducts.filter(product => product.category === category);
+    renderProducts(filteredProducts);
+}
+
+document.getElementById('encontrados-link').addEventListener('click', () => filterProducts('Encontrados'));
+document.getElementById('perdidos-link').addEventListener('click', () => filterProducts('Perdidos'));
+document.getElementById('adopcion-link').addEventListener('click', () => filterProducts('Adopción'));
+
 
 // Función para renderizar los productos en la página
 function renderProducts(productList) {
@@ -45,5 +62,5 @@ document.getElementById('search').addEventListener('input', function(e) {
 
 // Inicializar los productos al cargar la página
 window.onload = function() {
-    renderProducts(products);
+    renderProducts(allProducts);
 };
